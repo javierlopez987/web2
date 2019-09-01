@@ -4,33 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="calculadora.js"></script>
     <title>Calculadora</title>
 </head>
 <body>
-    <form action="calculadoraSuma.php" method="get">
-        <label for="">Sumar</label>
-        <input type="number" name="num1">
-        <input type="number" name="num2">
-        <button type="submit">+</button>
+    <h1>Calculadora</h1>
+    <form action="" method="get">
+        <input type="number" name="num1" id="num1">
+        <button type="submit" id="btnSumar">+</button>
+        <button type="submit" id="btnRestar">-</button>
+        <button type="submit" id="btnMultiplicar">*</button>
+        <button type="submit" id="btnDividir">/</button>
     </form>
-    <form action="calculadoraResta.php" method="get">
-        <label for="">Restar</label>
-        <input type="number" name="num1">
-        <input type="number" name="num2">
-        <button type="submit">-</button>
-    </form>
-    <form action="calculadoraProducto.php" method="get">
-        <label for="">Multiplicar</label>
-        <input type="number" name="num1">
-        <input type="number" name="num2">
-        <button type="submit">*</button>
-    </form>
-    <form action="calculadoraDivision.php" method="get">
-        <label for="">Dividir</label>
-        <input type="number" name="num1">
-        <input type="number" name="num2">
-        <button type="submit">/</button>
-    </form>
-    
+    <p>Resultado: <span id="resultado"></span></p>
 </body>
 </html>
