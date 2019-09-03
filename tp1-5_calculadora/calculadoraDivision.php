@@ -1,7 +1,7 @@
 <?php
-    if (isset($_GET['num1'])) {
-        $num1 = $_GET['num1'];
-        $num2 = $_GET['num2'];
+    if (isset($_GET['a']) && isset($_GET['b'])) {
+        $num1 = $_GET['a'];
+        $num2 = $_GET['b'];
         echo $num1 / $num2;
     }
 ?> 
