@@ -1,8 +1,17 @@
 <?php
-    if (isset($_GET['num1'])) {
-        $num1 = $_GET['num1'];
-        $num2 = $_GET['num2'];
-        echo $num1 + $num2;
-    }
+
+
+
+if (isset($_GET['a'])) {
+    $a = $_GET['a'];
+    $b = $_GET['b'];
+    sumar($a, $b);
+}
+
+function sumar($a, $b) {
+    //echo header('Content-Type: application/text');
+    echo $a + $b;
+    //return $a + $b;
+}
 
 ?> 

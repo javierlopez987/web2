@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     let a = 0;
-    function calcular(e) {
+    async function calcular(e) {
         e.preventDefault();
         
         let b = parseInt(document.querySelector("#num1").value);
         if(e.srcElement.id == "btnSumar") {
             console.log(a + b);
-            a = sumar(a, b);
+            a = await sumar(a, b);
         }else if (e.srcElement.id == "btnRestar"){
             console.log(a - b);
             a = restar(a, b);
@@ -29,22 +29,39 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(a / b);
             a = dividir(a, b);
         }
+        console.log("Muestro: " + a);
         mostrarResultado(a);
     }
 
-    function sumar(a, b) {
-        return a + b;
+
+    let URL = "http://localhost/web2/tp/tp1-5_calculadora/";
+    async function sumar(a, b) {
+        try {
+            console.log(URL + "calculadoraSuma.php?a=" + a + "&b=" + b);
+            let response = await fetch (URL + "calculadoraSuma.php?a=" + a + "&b=" + b);
+            console.log(response);
+            if(response.ok) {
+                let texto = await response.text();
+                console.log(parseInt(texto));
+                return parseInt(texto);
+            } else {
+                console.log("<h1>Error - Failed URL!</h1>");
+                return -1;
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    function restar(a, b) {
+    async function restar(a, b) {
         return a - b;
     }
     
-    function multiplicar(a, b) {
+    async function multiplicar(a, b) {
         return a * b;
     }
 
-    function dividir(a, b) {
+    async function dividir(a, b) {
         return a / b;
     }
 
