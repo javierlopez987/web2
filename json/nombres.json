@@ -1,0 +1,66 @@
+{
+    "status": "OK",
+    "nombres": [
+        {
+            "_id": "5d5428d929ea3f0004959d9c",
+            "group": "ejemplos",
+            "thingtype": "nombres",
+            "thing": 
+                {
+                    "nombre": "da"
+                },
+    "dateAdded": "2019-08-14T15:29:29.737Z",
+    "__v": 0
+    },
+    {
+    "_id": "5d308934f6fda90004f22f84",
+    "group": "ejemplos",
+    "thingtype": "nombres",
+    "thing": {
+    "Nombre": "Jerito"
+    },
+    "dateAdded": "2019-07-18T14:59:00.809Z",
+    "__v": 0
+    },
+    {
+    "_id": "5d5428aa29ea3f0004959d9a",
+    "group": "ejemplos",
+    "thingtype": "nombres",
+    "thing": {
+    "nombre": "dada"
+    },
+    "dateAdded": "2019-08-14T15:28:42.610Z",
+    "__v": 0
+    },
+    {
+    "_id": "5d5428c629ea3f0004959d9b",
+    "group": "ejemplos",
+    "thingtype": "nombres",
+    "thing": {
+    "nombre": "sffs"
+    },
+    "dateAdded": "2019-08-14T15:29:10.829Z",
+    "__v": 0
+    },
+    {
+    "_id": "5d5428e029ea3f0004959d9d",
+    "group": "ejemplos",
+    "thingtype": "nombres",
+    "thing": {
+    "nombre": "da"
+    },
+    "dateAdded": "2019-08-14T15:29:36.935Z",
+    "__v": 0
+    },
+    {
+    "_id": "5d5428e329ea3f0004959d9e",
+    "group": "ejemplos",
+    "thingtype": "nombres",
+    "thing": {
+    "nombre": "dada"
+    },
+    "dateAdded": "2019-08-14T15:29:39.808Z",
+    "__v": 0
+    }
+    ]
+    }
