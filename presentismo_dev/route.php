@@ -4,19 +4,21 @@
     $action = $_GET["action"];
 
     if($action == ''){
-        showPaginaWeb();
+        showPaginaWeb( menuWeb() );
     }else{
         if (isset($action)){
             $partesURL = explode("/", $action);
 
-            if($partesURL[0] == "tareas"){
-                GetTareas();
-            }elseif($partesURL[0] == "insertar") {
-                InsertarTarea();
-            }elseif($partesURL[0] == "finalizar") {
-                FinalizarTarea($partesURL[1]);
-            }elseif($partesURL[0] == "borrar") {
-                BorrarTarea($partesURL[1]);
+            if($partesURL[0] == "presentismo"){
+                showPaginaWeb( showPresentismo() );
+            }elseif($partesURL[0] == "materias"){
+                showPaginaWeb( showMaterias() );
+            }elseif($partesURL[0] == "alumnos") {
+                showPaginaWeb( showAlumnos() );
+            }elseif($partesURL[0] == "addMateria"){
+                addMateria();
+            }elseif($partesURL[0] == "addAlumno") {
+                addAlumno();
             }
         }
     }
