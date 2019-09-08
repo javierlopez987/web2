@@ -20,10 +20,10 @@ function GetTareas(){
     <body>';
     
     $db= connect();
-
-    $sentencia= $db-> prepare("select * from tarea");
-    $sentencia= execute();
+    $sentencia= $db-> prepare('SELECT * FROM tarea');
+    $sentencia->execute();
     $tareas= $sentencia->fetchAll(PDO::FETCH_OBJ);
+    //var_dump($tareas);die;
 
     foreach ($tareas as $tarea) {
          $html .= "<li>".$tarea->titulo."</li>";
