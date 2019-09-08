@@ -1,0 +1,23 @@
+{
+	"travels":
+		{
+			"travel":
+				[
+					{
+						"id": "0001",
+						"posLat": -53.4,
+						"posLong" : -37.4,
+						"client": 
+							{
+								"id": "001" , "name" : "Ana Garcia"
+							},
+						"price": 10.55,
+						"time" : 0,
+						"driver":
+							{
+								"id": "001" , "name" : "Juan Perez"
+							}
+					}
+				]
+		}
+}

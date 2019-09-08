@@ -1,4 +1,5 @@
 <?php
+    var_dump($_GET['inputPpal']);die;
     if(isset($_GET['inputPpal'])) {
         /*
         $suma = 0;

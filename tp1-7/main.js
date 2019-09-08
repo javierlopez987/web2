@@ -32,9 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
     async function enviar(e, num, inputs) {
         e.preventDefault()
         try {
-            //for (let i = 0; i < num; i++) {
-                //"inputs%5B%5D=" + 
-            //}
             let response = await fetch(URL + "?inputPpal=" + inputs);
             console.log(URL + "?inputPpal=" + inputs);
             console.log(response);
@@ -47,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(error);
         }
     }
+
+
 
     function mostrar (msj) {
         container.innerHTML = "Resultado: " + msj;
