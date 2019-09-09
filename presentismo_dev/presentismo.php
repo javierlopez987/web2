@@ -4,47 +4,41 @@
         return $db;
     }
     
-    function getMaterias() {
-        $db_connection = connect(); //conecto
-        $query = $db_connection->prepare('SELECT * FROM materia'); //preparo
-        $ok = $query->execute(); //ejecuto
+    function getQuery($querySQL) {
+        $db_connection = connect(); //conecto a la BD
+        $query = $db_connection->prepare($querySQL); //preparo consulta SQL
+        $ok = $query->execute(); //ejecuto consulta SQL
         if (!$ok) {var_dump($query->errorinfo()); die;} //si falla SQL muestra error
-        $materias = $query->fetchAll(PDO::FETCH_OBJ); //obtengo la respuesta
-        return $materias;
+        $obj = $query->fetchAll(PDO::FETCH_OBJ); //obtengo objeto
+        return $obj;
+    }
+    
+    function getMaterias() {
+        $queryMaterias = 'SELECT * FROM materia';
+        $obj = getQuery($queryMaterias);
+        return $obj;
     }
 
     function getAlumnos() {
-        $db_connection = connect(); //conecto
-        $query = $db_connection->prepare('SELECT * FROM alumno'); //preparo
-        $ok = $query->execute(); //ejecuto
-        if (!$ok) { var_dump($query->errorinfo()); die;} //si falla SQL muestra error
-        $alumnos = $query->fetchAll(PDO::FETCH_OBJ); //obtengo la respuesta
-        return $alumnos;
+        $queryAlumnos = 'SELECT * FROM alumno';
+        $obj = getQuery($queryAlumnos);
+        return $obj;
     }
 
     function getPresentismo() {
-        $db_connection = connect(); //conecto
-        $query = $db_connection->prepare( 
-            'SELECT T1.*, T2.*, T3.*
-            FROM materia_alumno AS T1
-            INNER JOIN alumno AS T2
-               ON T1.id_alumno = T2.id_alumno
-            LEFT JOIN materia AS T3
-               ON T1.id_materia = T3.id_materia
-            WHERE T3.id_materia = 2'
-            ); //preparo
-        $ok = $query->execute(); //ejecuto
-        if (!$ok) {
-            var_dump($query->errorinfo());
-            die();
-        } //si falla SQL muestra error
-        $presentismo = $query->fetchAll(PDO::FETCH_OBJ); //obtengo la respuesta
-        return $presentismo;
+        $queryPresentismo = 'SELECT T1.*, T2.*, T3.*
+        FROM materia_alumno AS T1
+        INNER JOIN alumno AS T2
+           ON T1.id_alumno = T2.id_alumno
+        LEFT JOIN materia AS T3
+           ON T1.id_materia = T3.id_materia
+        WHERE T3.id_materia = 2';
+        $obj = getQuery($queryPresentismo);
+        return $obj;
     }
 
     function showPresentismo() {
         $objAsistencia = getPresentismo();
-        //var_dump($objAsistencia);die;
         $div = "<table> <tr>
             <th> Fecha </th> 
             <th> Materia </th>
