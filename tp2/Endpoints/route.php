@@ -4,7 +4,7 @@
     $action = $_GET["action"];
 
     if($action == ''){
-        showPaginaWeb( menuWeb() );
+        showPaginaWeb( showMaterias() );
     }else{
         if (isset($action)){
             $partesURL = explode("/", $action);

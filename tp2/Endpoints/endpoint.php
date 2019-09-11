@@ -1,4 +1,6 @@
 <?php
+define("BASE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+
     function connect() {
         $db = new PDO('mysql:host=192.168.0.5;dbname=centro_de_cobro;charset=utf8', 'root', '');
         return $db;
@@ -120,6 +122,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0", shrink-to-fit=no">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <base href='.BASE.' >
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <title>Presentismo</title>
         </head>
@@ -149,7 +152,7 @@
             var_dump($query->errorinfo());
             die();
         } //si falla SQL muestra error
-        header("Location: /web2/dev/tp2/Endpoints/materias"); //vuelve a url
+        header("Location: " . BASE); //vuelve a url
     }
 
  /*    function addAlumno(){
@@ -167,6 +170,6 @@
             var_dump($query->errorinfo());
             die();
         } //si falla SQL muestra error
-        header("Location: /web2/dev/presentismo_dev/"); //vuelve a url
+        header("Location: " . BASE); //vuelve a url
     } */
 ?>
