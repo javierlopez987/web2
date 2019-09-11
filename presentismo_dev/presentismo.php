@@ -15,14 +15,14 @@
     
     function getMaterias() {
         $queryMaterias = 'SELECT * FROM materia';
-        $obj = getQuery($queryMaterias);
-        return $obj;
+        $objMaterias = getQuery($queryMaterias);
+        return $objMaterias;
     }
 
     function getAlumnos() {
         $queryAlumnos = 'SELECT * FROM alumno';
-        $obj = getQuery($queryAlumnos);
-        return $obj;
+        $objAlumnos = getQuery($queryAlumnos);
+        return $objAlumnos;
     }
 
     function getPresentismo() {
@@ -33,19 +33,19 @@
         LEFT JOIN materia AS T3
            ON T1.id_materia = T3.id_materia
         WHERE T3.id_materia = 2';
-        $obj = getQuery($queryPresentismo);
-        return $obj;
+        $objPresentismo = getQuery($queryPresentismo);
+        return $objPresentismo;
     }
 
     function showPresentismo() {
-        $objAsistencia = getPresentismo();
+        $objPresentismo = getPresentismo();
         $div = "<table> <tr>
             <th> Fecha </th> 
             <th> Materia </th>
             <th> Alumno </th> 
             <th> Asistencia </th>
         </tr>";
-        foreach ($objAsistencia as $asistencia) {
+        foreach ($objPresentismo as $asistencia) {
                 if($asistencia->asistencia != 0) {
                     $asis = "checked";
                 }
