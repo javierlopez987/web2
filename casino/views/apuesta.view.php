@@ -1,6 +1,6 @@
 <?php
 
-class JuegoView {
+class ApuestaView {
     private $view;
 
     function __construct() {
@@ -29,47 +29,41 @@ class JuegoView {
         echo $html;
     }
     
-    public function displayJuegos($juegos) {
+    public function displayApuestas($apuestas) {
         $contenido = "<table class='table table-hover table-sm''> <thead class='thead-dark'> <tr>
-            <th scope='col'> Nombre del juego </th> 
-            <th scope='col'> Máx. Jugadores </th>
-            <th scope='col'> Cartas </th>
-            <th scope='col'> </th>
+            <th scope='col'> Fecha </th>
+            <th scope='col'> Monto </th>
         </tr> </thead> <tbody>";
-        foreach ($juegos as $objJuego) {
-            if($objJuego->juego_de_cartas != 0) {
-                $asis = "checked";
-            } else {
-                $asis = "";
-            }
+        foreach ($apuestas as $objApuesta) {
             $contenido .= "<tr>
-            <td> <a href='apuestas/{$objJuego->id_juego}'>{$objJuego->nombre}</a> </td> 
-            <td> {$objJuego->cantidad_jugadores} </td>
-            <td> <input type='checkbox' {$asis} disabled> </td>
-            <td> <a href='deleteJuego/{$objJuego->id_juego}'>Borrar</a>
-                <a href='updateJuego/{$objJuego->id_juego}/
-                {$objJuego->nombre}/{$objJuego->cantidad_jugadores}/{$asis}'>Modificar</a> </td>
+            <td> {$objApuesta->fecha} </td> 
+            <td> {$objApuesta->monto} </td>
             </tr>";
         }
         $contenido .= "</tbody> </table>";
         $contenido .= 
-        '<form action="addJuego" method="get">
-            <input type="text" name="name" placeholder="Nombre">
-            <input type="number" name="players" placeholder="Máx. jugadores">
-            <input type="checkbox" name="cards">
-            <button type="submit" class="btn btn-outline-primary">Agregar</button>
-        </form>';
+        "<form action='../addApuesta' method='get'>
+            <input type='hidden' name='id_juego' value='{$apuestas[0]->id_juego}'>
+            <input type='datetime-local' name='fecha'>
+            <input type='number' name='monto' placeholder='Monto apuesta'>
+            <button type='submit' class='btn btn-outline-primary'>Agregar</button>
+        </form>
+        <form action='../' method='post'>
+            <button type='submit' class='btn btn-outline-primary'>Volver</button>
+        </form>";
         $this->displayPaginaWeb($contenido);
     }
 
-    public function displayUpdateJuego($juego) {
+    public function displayNewApuestas($idJuego) {
         $contenido = 
-        "<form action='updateJuego' method='get'>
-            <input type='hidden' name='id' value='{$juego[0]}'>
-            <input type='text' name='name' value='{$juego[1]}'>
-            <input type='number' name='players' value='{$juego[2]}'>
-            <input type='checkbox' name='cards' value='{$juego[3]}'>
-            <button type='submit' class='btn btn-outline-primary'>Aceptar modificación</button>
+        "<form action='../addApuesta' method='get'>
+            <input type='hidden' name='id_juego' value='{$idJuego}'>
+            <input type='datetime-local' name='fecha'>
+            <input type='number' name='monto' placeholder='Monto apuesta'>
+            <button type='submit' class='btn btn-outline-primary'>Agregar</button>
+        </form>
+        <form action='../' method='post'>
+            <button type='submit' class='btn btn-outline-primary'>Volver</button>
         </form>";
         $this->displayPaginaWeb($contenido);
     }
