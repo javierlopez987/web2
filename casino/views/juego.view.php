@@ -47,8 +47,7 @@ class JuegoView {
             <td> {$objJuego->cantidad_jugadores} </td>
             <td> <input type='checkbox' {$asis} disabled> </td>
             <td> <a href='deleteJuego/{$objJuego->id_juego}'>Borrar</a>
-                <a href='updateJuego/{$objJuego->id_juego}/
-                {$objJuego->nombre}/{$objJuego->cantidad_jugadores}/{$asis}'>Modificar</a> </td>
+                <a href='updateJuego/{$objJuego->id_juego}/{$objJuego->nombre}/{$objJuego->cantidad_jugadores}/{$asis}'>Modificar</a> </td>
             </tr>";
         }
         $contenido .= "</tbody> </table>";
